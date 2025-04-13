@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>@ViewData["Title"] - HRMS</title>
+    @await Html.PartialAsync("~/Views/Vendor/Styles.cshtml")
+</head>
+
+<body class="with-welcome-text">
+    <div class="container-scroller">
+        @await Html.PartialAsync("~/Views/Templates/Dashboard/_Navbar.cshtml")
+        <div class="container-fluid page-body-wrapper">
+            @await Html.PartialAsync("~/Views/Templates/Dashboard/_Sidebar.cshtml")
+            <div class="main-panel">
+                <div class="content-wrapper bg-white px-4 py-4">
+                    @RenderBody()
+                </div>
+                @await Html.PartialAsync("~/Views/Templates/Dashboard/_Footer.cshtml")
+            </div>
+        </div>
+    </div>
+    @await Html.PartialAsync("~/Views/Vendor/Scripts.cshtml")
+</body>
+
+</html>

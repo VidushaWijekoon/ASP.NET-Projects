@@ -1,0 +1,43 @@
+@model HRMS.Models.Branch
+
+@{
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    ViewData["Title"] = "Create New Branch";
+}
+
+<div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card border border-dark">
+            <div class="card-header d-flex align-items-center">
+                <h4 class="card-title pt-3">Create New Branch</h4>
+            </div>
+
+            <div class="card-body">
+                <form class="forms-sample" asp-action="SaveBranch" method="POST">
+                    <div class="form-group">
+                        <label asp-for="BranchName"></label>
+                        <input asp-for="BranchName" class="form-control" placeholder="Branch Name" />
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="ContactNumber"></label>
+                        <input asp-for="ContactNumber" class="form-control" placeholder="Contact Number" />
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Email"></label>
+                        <input asp-for="Email" class="form-control" placeholder="Email Address" />
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="FileNo"></label>
+                        <input asp-for="FileNo" class="form-control" placeholder="File Number" />
+                    </div>
+
+                    <button type="submit" class="btn btn-primary me-2">Submit</button>
+                    <a class="btn btn-light">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
