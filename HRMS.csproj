@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Libs\" />
+    <Folder Include="Views\Layouts\" />
+    <Folder Include="Views\Pages\Branches\" />
+    <Folder Include="Views\Pages\Departments\" />
+    <Folder Include="Views\Pages\Designations\" />
+    <Folder Include="Views\Pages\Employees\" />
+    <Folder Include="Views\Templates\" />
+  </ItemGroup>
+
+</Project>
