@@ -2,15 +2,35 @@
 <html lang="en">
 
 <head>
+    <!--begin::Accessibility Meta Tags-->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewData["Title"] - HRMS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <meta name="author" content="Vidusha Wijekoon" />
+    <meta name="description" content="Human Resources Management System (HRMS)" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#007bff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)" />
+
+    <title>@ViewData["Title"] - | Human Resources Management System (HRMS)</title>
 
     @await Html.PartialAsync("~/Views/Libs/Dashboard/Styles.cshtml")
+
 </head>
 
 <body>
-    @RenderBody()
+    <div class="wrapper">
+        @await Html.PartialAsync("~/Views/Templates/Dashboard/Sidebar.cshtml")
+        <div class="main">
+            @await Html.PartialAsync("~/Views/Templates/Dashboard/Navbar.cshtml")
+            <main class="content">
+                <div class="container-fluid p-0">
+                    @RenderBody()
+                </div>
+            </main>
+            @await Html.PartialAsync("~/Views/Templates/Dashboard/Footer.cshtml")
+        </div>
+    </div>
+    </div>
 
     @await Html.PartialAsync("~/Views/Libs/Dashboard/Scripts.cshtml")
 </body>

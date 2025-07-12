@@ -6,7 +6,7 @@ namespace HRMS.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            return Content("Employee CRUD");
         }
     }
 }
