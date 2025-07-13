@@ -1,140 +1,104 @@
 <nav id="sidebar" class="sidebar js-sidebar">
-    <div class="sidebar-content js-simplebar">
-        <a class="sidebar-brand" href="index.html">
-            <span class="align-middle">AdminKit</span>
-        </a>
+    <div class="sidebar-content js-simplebar" data-simplebar="init">
+        <div class="simplebar-wrapper" style="margin: 0px;">
+            <div class="simplebar-height-auto-observer-wrapper">
+                <div class="simplebar-height-auto-observer"></div>
+            </div>
+            <div class="simplebar-mask">
+                <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
+                    <div class="simplebar-content-wrapper" tabindex="0" role="region" aria-label="scrollable content"
+                        style="height: 100%; overflow: hidden scroll;">
+                        <div class="simplebar-content" style="padding: 0px;">
+                            <a class='sidebar-brand' href='/'>
+                                <span class="sidebar-brand-text align-middle d-flex justify-content-center">
+                                    HRMS
+                                </span>
+                            </a>
 
-        <ul class="sidebar-nav">
-            <li class="sidebar-header">Pages</li>
+                            <ul class="sidebar-nav">
+                                <li class="sidebar-item">
+                                    <a class='sidebar-link' href='#'>
+                                        <i class="align-middle" data-feather="sliders"></i>
+                                        <span class="align-middle">Dashboard</span>
+                                    </a>
+                                </li>
 
-            <li class="sidebar-item active">
-                <a class="sidebar-link" href="index.html">
-                    <i class="align-middle" data-feather="sliders"></i>
-                    <span class="align-middle">Dashboard</span>
-                </a>
-            </li>
 
-            <li class="sidebar-item ">
-                <a data-target="#master_data" data-toggle="collapse" class="sidebar-link collapsed">
-                    <i class="fas fa-home"></i>
-                    <span class="align-middle">Master Data</span>
-                </a>
-                <ul id="master_data" class="sidebar-dropdown list-unstyled collapse" data-parent="#sidebar">
-                    <li class="sidebar-item ">
-                        <a class="sidebar-link" href="/departments">Departments</a>
-                    </li>
-                    <li class="sidebar-item ">
-                        <a class="sidebar-link" href="/branches">Branches</a>
-                    </li>
-                    <li class="sidebar-item ">
-                        <a class="sidebar-link" href="/designations">Designations</a>
-                    </li>
-                </ul>
-            </li>
+                                <li class="sidebar-item">
+                                    <a data-bs-target="#employees" data-bs-toggle="collapse"
+                                        class="sidebar-link collapsed">
+                                        <i class="align-middle" data-feather="layout"></i>
+                                        <span class="align-middle">Master Data</span>
+                                    </a>
+                                    <ul id="employees" class="sidebar-dropdown list-unstyled collapse"
+                                        data-bs-parent="#sidebar">
+                                        <li class="sidebar-item">
+                                            <a class='sidebar-link' href='/Employees'>Employees</a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a class='sidebar-link' href='/CreateEmployee'>Create Employess</a>
+                                        </li>
+                                    </ul>
+                                </li>
 
-            <li class="sidebar-item">
-                <a data-target="#emp_data" data-toggle="collapse" class="sidebar-link collapsed">
-                    <i class="fas fa-users"></i>
-                    <span class="align-middle">Employees Data</span>
-                </a>
-                <ul id="emp_data" class="sidebar-dropdown list-unstyled collapse" data-parent="#sidebar">
-                    <li class="sidebar-item ">
-                        <a class="sidebar-link" href="/departments">Create Employee</a>
-                    </li>
-                    <li class="sidebar-item ">
-                        <a class="sidebar-link" href="/employees">Employees</a>
-                    </li>
-                </ul>
-            </li>
+                                <li class="sidebar-item">
+                                    <a class='sidebar-link' href='#'>
+                                        <i class="align-middle" data-feather="credit-card"></i>
+                                        <span class="align-middle">Invoice</span>
+                                    </a>
+                                </li>
 
-            <li class="sidebar-item">
-                <a class="sidebar-link" href="pages-sign-in.html">
-                    <i class="align-middle" data-feather="log-in"></i>
-                    <span class="align-middle">Sign In</span>
-                </a>
-            </li>
+                                <li class="sidebar-item">
+                                    <a class='sidebar-link' href='#'>
+                                        <i class="align-middle" data-feather="list"></i>
+                                        <span class="align-middle">Tasks</span>
+                                    </a>
+                                </li>
 
-            <li class="sidebar-item">
-                <a class="sidebar-link" href="pages-sign-up.html">
-                    <i class="align-middle" data-feather="user-plus"></i>
-                    <span class="align-middle">Sign Up</span>
-                </a>
-            </li>
+                                <li class="sidebar-item">
+                                    <a class='sidebar-link' href='#'>
+                                        <i class="align-middle" data-feather="calendar"></i>
+                                        <span class="align-middle">Calendar</span>
+                                    </a>
+                                </li>
 
-            <li class="sidebar-item">
-                <a class="sidebar-link" href="pages-blank.html">
-                    <i class="align-middle" data-feather="book"></i>
-                    <span class="align-middle">Blank</span>
-                </a>
-            </li>
+                                <li class="sidebar-header">
+                                    Data
+                                </li>
 
-            <li class="sidebar-header">Tools & Components</li>
+                                <li class="sidebar-item">
+                                    <a data-bs-target="#master_data" data-bs-toggle="collapse"
+                                        class="sidebar-link collapsed">
+                                        <i class="align-middle" data-feather="layout"></i>
+                                        <span class="align-middle">Master Data</span>
+                                    </a>
+                                    <ul id="master_data" class="sidebar-dropdown list-unstyled collapse"
+                                        data-bs-parent="#sidebar">
+                                        <li class="sidebar-item">
+                                            <a class='sidebar-link' href='/departments'>Departments</a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a class='sidebar-link' href='/branches'>Branches</a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a class='sidebar-link' href='/designations'>Designations</a>
+                                        </li>
+                                    </ul>
+                                </li>
 
-            <li class="sidebar-item">
-                <a class="sidebar-link" href="ui-buttons.html">
-                    <i class="align-middle" data-feather="square"></i>
-                    <span class="align-middle">Buttons</span>
-                </a>
-            </li>
+                                <li class="sidebar-header">
+                                    Plugins &amp; Addons
+                                </li>
 
-            <li class="sidebar-header">Employee Data</li>
 
-            <li class="sidebar-item">
-                <a class="sidebar-link" href="ui-forms.html">
-                    <i class="align-middle" data-feather="check-square"></i>
-                    <span class="align-middle">Forms</span>
-                </a>
-            </li>
+                            </ul>
 
-            <li class="sidebar-item">
-                <a class="sidebar-link" href="ui-cards.html">
-                    <i class="align-middle" data-feather="grid"></i>
-                    <span class="align-middle">Cards</span>
-                </a>
-            </li>
 
-            <li class="sidebar-item">
-                <a class="sidebar-link" href="ui-typography.html">
-                    <i class="align-middle" data-feather="align-left"></i>
-                    <span class="align-middle">Typography</span>
-                </a>
-            </li>
-
-            <li class="sidebar-item">
-                <a class="sidebar-link" href="icons-feather.html">
-                    <i class="align-middle" data-feather="coffee"></i>
-                    <span class="align-middle">Icons</span>
-                </a>
-            </li>
-
-            <li class="sidebar-header">Plugins & Addons</li>
-
-            <li class="sidebar-item">
-                <a class="sidebar-link" href="charts-chartjs.html">
-                    <i class="align-middle" data-feather="bar-chart-2"></i>
-                    <span class="align-middle">Charts</span>
-                </a>
-            </li>
-
-            <li class="sidebar-item">
-                <a class="sidebar-link" href="maps-google.html">
-                    <i class="align-middle" data-feather="map"></i>
-                    <span class="align-middle">Maps</span>
-                </a>
-            </li>
-        </ul>
-
-        <div class="sidebar-cta">
-            <div class="sidebar-cta-content">
-                <strong class="d-inline-block mb-2">Upgrade to Pro</strong>
-                <div class="mb-3 text-sm">
-                    Are you looking for more components? Check out
-                    our premium version.
-                </div>
-                <div class="d-grid">
-                    <a href="upgrade-to-pro.html" class="btn btn-primary">Upgrade to Pro</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+        
     </div>
 </nav>
