@@ -2,3 +2,16 @@
 .nav-tabs .nav-link {
     width: 200px !important;
 }
+
+.content {
+    padding: 15px 25px !important;
+}
+
+.text-danger {
+    font-size: 0.875rem;
+    margin-top: 5px;
+}
+
+.is-invalid {
+    border-color: #dc3545;
+}
