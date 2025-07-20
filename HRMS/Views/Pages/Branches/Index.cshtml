@@ -1,18 +1,29 @@
 @{
     Layout = "~/Views/Layouts/_DashboardLayout.cshtml";
     ViewData["Title"] = "Branches";
+    @model List<HRMS.Models.Branch>
 }
+
+<div class="position-fixed top-0 end-0 p-3" style="z-index: 1100;">
+    <div id="successToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive"
+        aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body">
+                Branch created successfully!
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                aria-label="Close"></button>
+        </div>
+    </div>
+</div>
 
 <div class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1 class="m-0">Dashboard v2</h1>
-            </div>
-            <div class="col-sm-6">
+            <div class="col-sm-12 d-flex justify-content-end">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">Dashboard v2</li>
+                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                    <li class="breadcrumb-item active">Branches</li>
                 </ol>
             </div>
         </div>
@@ -23,7 +34,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <div class="card p-3 shadow">
+                <div class="card shadow">
                     <div class="card-body">
                         <nav>
                             <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
@@ -41,7 +52,8 @@
                             <div class="tab-pane fade show active" id="branches" role="tabpanel"
                                 aria-labelledby="branches-tab">
                                 <div class="table-responsive">
-                                    <table class="table table-bordered table-hover">
+
+                                    <table class="table table-bordered table-hover" id="branch_table">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
@@ -59,20 +71,39 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>2</td>
-                                                <td>3</td>
-                                                <td>4</td>
-                                                <td>5</td>
-                                                <td>6</td>
-                                                <td>7</td>
-                                                <td>8</td>
-                                                <td>9</td>
-                                                <td>10</td>
-                                                <td>11</td>
-                                                <td>112</td>
-                                            </tr>
+                                            @if (Model != null && Model.Any())
+                                            {
+                                                int serial = 1;
+                                                foreach (var branch in Model)
+                                                {
+                                                    <tr>
+                                                        <td>@serial</td>
+                                                        <td>@branch.BranchName</td>
+                                                        <td>@branch.BranchEmailAddress</td>
+                                                        <td>@branch.ContactNo</td>
+                                                        <td>@branch.LandlineNo</td>
+                                                        <td>@branch.BranchLabourFileno</td>
+                                                        <td>@branch.BranchManager</td>
+                                                        <td></td>
+                                                        <td>@branch.BranchAssistantManager</td>
+                                                        <td>@branch.BranchAreaManager</td>
+                                                        <td></td>
+                                                        <td>
+                                                            <a href="@Url.Action("Edit", "Branches", new { id = branch.BranchId })"
+                                                                class="btn btn-sm btn-primary">Edit</a>
+                                                            <a href="@Url.Action("Delete", "Branches", new { id = branch.BranchId })"
+                                                                class="btn btn-sm btn-danger">Delete</a>
+                                                        </td>
+                                                    </tr>
+                                                    serial++;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                <tr>
+                                                    <td colspan="12" class="text-center">No branches found.</td>
+                                                </tr>
+                                            }
                                         </tbody>
                                     </table>
                                 </div>
@@ -82,7 +113,7 @@
                                 aria-labelledby="create-branch">
                                 <div class="card">
                                     <div class="card-body">
-                                        <form class="validate" method="post">
+                                        <form action="/Branches/Create" method="POST" class="validate">
                                             <div class="row">
                                                 <!-- Left Column -->
                                                 <div class="col-md-6">
@@ -185,7 +216,7 @@
                                                     <div class="form-group mb-3">
                                                         <label class="col-sm-3 control-label mb-2">Area Manager</label>
                                                         <div class="col-sm-9">
-                                                            <select name="area_manager_id" class="form-control">
+                                                            <select name="area_manager" class="form-control">
                                                                 <option value="">--Select Area Manager--</option>
                                                             </select>
                                                         </div>
@@ -194,7 +225,7 @@
                                                     <div class="form-group mb-3">
                                                         <label class="col-sm-3 control-label mb-2">Manager Name</label>
                                                         <div class="col-sm-9">
-                                                            <select name="mamager_id" class="form-control">
+                                                            <select name="branch_manager" class="form-control">
                                                                 <option value="">--Select Branch Manager--</option>
                                                             </select>
                                                         </div>
@@ -204,7 +235,7 @@
                                                         <label class="col-sm-3 control-label mb-2">Asst Manager
                                                             Name</label>
                                                         <div class="col-sm-9">
-                                                            <select name="asst_manager_id" class="form-control">
+                                                            <select name="asst_manager" class="form-control">
                                                                 <option value="">--Select Asst Manager--</option>
                                                             </select>
                                                         </div>
@@ -235,14 +266,13 @@
 @section Scripts {
     <script>
         $(document).ready(function () {
-            // jQuery Validate rules
             $(".validate").validate({
                 rules: {
                     name: {
                         required: true,
                         minlength: 2
                     },
-                    emailid: {
+                    email: {
                         required: true,
                         email: true
                     },
@@ -293,19 +323,16 @@
                 },
                 unhighlight: function (element) {
                     $(element).removeClass("is-invalid");
+                },
+                submitHandler: function (form) {
+                    form.submit();
+                    var toastEl = document.getElementById('successToast');
+                    var toast = new bootstrap.Toast(toastEl, { delay: 3000 });
+                    toast.show();
                 }
-            });
-
-            // Optional: Alert on successful submit
-            $("#create_branch").on("click", function (e) {
-                if (!$(".validate").valid()) {
-                    e.preventDefault(); // Stop submission if form is invalid
-                    return;
-                }
-                // Optional success alert
-                alert("Form looks good. Submitting...");
             });
         });
-    </script>
 
+        new DataTable('#branch_table');
+    </script>
 }
