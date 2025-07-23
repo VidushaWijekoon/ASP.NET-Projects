@@ -1,17 +1,29 @@
-.nav-tabs .nav-item.show .nav-link,
-.nav-tabs .nav-link {
-    width: 200px !important;
+@font-face {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 400;
+  src: local("Poppins Regular"), local(Poppins-Regular),
+    url(../fonts/Poppins-Regular.ttf) format("woff2");
+  font-display: swap;
 }
 
-.content {
-    padding: 0 !important;
+body {
+  font-family: "Poppins", sans-serif;
 }
 
-.text-danger {
-    font-size: 0.875rem;
-    margin-top: 5px;
+.table,
+.dt-info {
+  font-size: 13px !important;
 }
 
-.is-invalid {
-    border-color: #dc3545;
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="url"],
+textarea,
+select {
+  font-size: 13px !important;
 }

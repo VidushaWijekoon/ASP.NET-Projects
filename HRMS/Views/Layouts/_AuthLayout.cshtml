@@ -4,17 +4,15 @@
 <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <meta name="author" content="Vidusha Wijekoon" />
-     <meta name="description" content="Human Resources Management System (HRMS)" />
-
      <title>@ViewData["Title"] - | Human Resources Management System (HRMS)</title>
+
      @await Html.PartialAsync("~/Views/Libs/Auth/Styles.cshtml")
+     <link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
 
 </head>
 
-<body class="hold-transition login-page">
+<body>
      @RenderBody()
-
      @await Html.PartialAsync("~/Views/Libs/Auth/Scripts.cshtml")
 </body>
 

@@ -4,264 +4,480 @@
     @model List<HRMS.Models.Branch>
 }
 
-<div class="position-fixed top-0 end-0 p-3" style="z-index: 1100;">
-    <div id="successToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive"
-        aria-atomic="true">
-        <div class="d-flex">
-            <div class="toast-body">
-                Branch created successfully!
-            </div>
-            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
-                aria-label="Close"></button>
-        </div>
+<div class="card shadow-none border mb-3">
+    <div class="bg-holder bg-card d-none d-md-block" style="background-image:url(/img/illustrations/reports-bg.png);">
     </div>
-</div>
-
-<div class="content-header">
-    <div class="container-fluid">
-        <div class="row mb-2">
-            <div class="col-sm-12 d-flex justify-content-end">
-                <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                    <li class="breadcrumb-item active">Branches</li>
-                </ol>
-            </div>
-        </div>
-    </div>
-</div>
-
-<section class="content">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card shadow">
-                    <div class="card-body">
-                        <nav>
-                            <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
-                                <button class="nav-link active" id="branches-tab" data-bs-toggle="tab"
-                                    data-bs-target="#branches" type="button" role="tab" aria-controls="branches"
-                                    aria-selected="true">Branches</button>
-                                <button class="nav-link" id="create-branch" data-bs-toggle="tab"
-                                    data-bs-target="#createBranch" type="button" role="tab" aria-controls="createBranch"
-                                    aria-selected="false">Create
-                                    Branch</button>
-                            </div>
-                        </nav>
-
-                        <div class="tab-content p-3 border bg-light" id="nav-tabContent">
-                            <div class="tab-pane fade show active" id="branches" role="tabpanel"
-                                aria-labelledby="branches-tab">
-                                <div class="table-responsive">
-
-                                    <table class="table table-bordered table-hover" id="branch_table">
-                                        <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Branch Name</th>
-                                                <th>Email Address</th>
-                                                <th>Contact No</th>
-                                                <th>Landline No</th>
-                                                <th>Labour No</th>
-                                                <th>Manager</th>
-                                                <th>Manager Contact No</th>
-                                                <th>Asst Manager</th>
-                                                <th>Area Manager</th>
-                                                <th>No of Employees</th>
-                                                <th>Options</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @if (Model != null && Model.Any())
-                                            {
-                                                int serial = 1;
-                                                foreach (var branch in Model)
-                                                {
-                                                    <tr>
-                                                        <td>@serial</td>
-                                                        <td>@branch.BranchName</td>
-                                                        <td>@branch.BranchEmailAddress</td>
-                                                        <td>@branch.ContactNo</td>
-                                                        <td>@branch.LandlineNo</td>
-                                                        <td>@branch.BranchLabourFileno</td>
-                                                        <td>@branch.BranchManager</td>
-                                                        <td></td>
-                                                        <td>@branch.BranchAssistantManager</td>
-                                                        <td>@branch.BranchAreaManager</td>
-                                                        <td></td>
-                                                        <td>
-                                                            <a href="@Url.Action("Edit", "Branches", new { id = branch.BranchId })"
-                                                                class="btn btn-sm btn-primary">Edit</a>
-                                                            <a href="@Url.Action("Delete", "Branches", new { id = branch.BranchId })"
-                                                                class="btn btn-sm btn-danger">Delete</a>
-                                                        </td>
-                                                    </tr>
-                                                    serial++;
-                                                }
-                                            }
-                                            else
-                                            {
-                                                <tr>
-                                                    <td colspan="12" class="text-center">No branches found.</td>
-                                                </tr>
-                                            }
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-
-                            <div class="tab-pane fade" id="createBranch" role="tabpanel"
-                                aria-labelledby="create-branch">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <form action="/Branches/Create" method="POST" class="validate">
-                                            <div class="row">
-                                                <!-- Left Column -->
-                                                <div class="col-md-6">
-                                                    <div class="form-group mb-3">
-                                                        <label class="col-sm-3 control-label mb-3">Branch Name <span
-                                                                class="text-danger">*</span></label>
-                                                        <div class="col-sm-9">
-                                                            <input type="text" class="form-control" name="name"
-                                                                id="name" required />
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group mb-3">
-                                                        <label class="col-sm-3 control-label mb-2">Email Address <span
-                                                                class="text-danger">*</span></label>
-                                                        <div class="col-sm-9">
-                                                            <input type="email" class="form-control" name="email"
-                                                                id="email" required />
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group mb-3">
-                                                        <label class="col-sm-3 control-label mb-2">Contact No <span
-                                                                class="text-danger">*</span></label>
-                                                        <div class="col-sm-9">
-                                                            <input type="text" class="form-control" name="contactno"
-                                                                required />
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group mb-3">
-                                                        <label class="col-sm-3 control-label mb-2">Landline No</label>
-                                                        <div class="col-sm-9">
-                                                            <input type="text" class="form-control" name="landlineno" />
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group mb-3">
-                                                        <label class="col-sm-3 control-label mb-2">Fax No</label>
-                                                        <div class="col-sm-9">
-                                                            <input type="text" class="form-control" name="faxno" />
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group mb-3">
-                                                        <label class="col-sm-3 control-label mb-2">Emirates <span
-                                                                class="text-danger">*</span></label>
-                                                        <div class="col-sm-9">
-                                                            <select id="emirates" name="emirates" class="form-control"
-                                                                required>
-                                                                <option value="">Select Emirate</option>
-                                                                <option value="Abu Dhabi">Abu Dhabi</option>
-                                                                <option value="Ajman">Ajman</option>
-                                                                <option value="Dubai">Dubai</option>
-                                                                <option value="Fujairah">Fujairah</option>
-                                                                <option value="Ras Al Khaimah">Ras Al Khaimah</option>
-                                                                <option value="Sharjah">Sharjah</option>
-                                                                <option value="Umm Al Quwain">Umm Al Quwain</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group mb-3">
-                                                        <label class="col-sm-3 control-label mb-2">Address <span
-                                                                class="text-danger">*</span></label>
-                                                        <div class="col-sm-9">
-                                                            <textarea class="form-control" name="address"
-                                                                required></textarea>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <!-- Right Column -->
-                                                <div class="col-md-6">
-                                                    <div class="form-group mb-3">
-                                                        <label class="col-sm-3 control-label mb-2">City Code <span
-                                                                class="text-danger">*</span></label>
-                                                        <div class="col-sm-9">
-                                                            <input type="text" class="form-control" name="citycode"
-                                                                required />
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group mb-3">
-                                                        <label class="col-sm-3 control-label mb-2">Postal Code</label>
-                                                        <div class="col-sm-9">
-                                                            <input type="text" class="form-control" name="postalcode" />
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group mb-3">
-                                                        <label class="col-sm-3 control-label mb-2">Labour File
-                                                            No</label>
-                                                        <div class="col-sm-9">
-                                                            <input type="text" class="form-control"
-                                                                name="labourfileno" />
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group mb-3">
-                                                        <label class="col-sm-3 control-label mb-2">Area Manager</label>
-                                                        <div class="col-sm-9">
-                                                            <select name="area_manager" class="form-control">
-                                                                <option value="">--Select Area Manager--</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group mb-3">
-                                                        <label class="col-sm-3 control-label mb-2">Manager Name</label>
-                                                        <div class="col-sm-9">
-                                                            <select name="branch_manager" class="form-control">
-                                                                <option value="">--Select Branch Manager--</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group mb-3">
-                                                        <label class="col-sm-3 control-label mb-2">Asst Manager
-                                                            Name</label>
-                                                        <div class="col-sm-9">
-                                                            <select name="asst_manager" class="form-control">
-                                                                <option value="">--Select Asst Manager--</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- Submit Button -->
-                                            <div class="form-group">
-                                                <div class="col-sm-offset-3 col-sm-9">
-                                                    <button type="submit" class="btn btn-info" id="create_branch">Add
-                                                        Branches</button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <div class="card-header p-0 py-2">
+        <div class="row flex-between-center gx-0">
+            <div class="col-lg-auto d-flex align-items-center">
+                <div class="ms-x1">
+                    <h4 class="mb-0 text-primary fw-bold">
+                        <span class="text-info fw-medium">Branches</span>
+                    </h4>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>
+
+<div class="row g-3">
+
+    <div class="col-xxl-12 col-xl-12">
+        <div class="card overflow-hidden">
+            <div class="card-header p-0 scrollbar-overlay border-bottom" data-simplebar="init">
+                <div class="simplebar-wrapper" style="margin: 0px;">
+                    <div class="simplebar-height-auto-observer-wrapper">
+                        <div class="simplebar-height-auto-observer"></div>
+                    </div>
+                    <div class="simplebar-mask">
+                        <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
+                            <div class="simplebar-content-wrapper" tabindex="0" role="region"
+                                aria-label="scrollable content" style="height: auto; overflow: hidden;">
+                                <div class="simplebar-content" style="padding: 0px;">
+                                    <ul class="nav nav-tabs border-0 tab-contact-details flex-nowrap"
+                                        id="contact-details-tab" role="tablist">
+                                        <li class="nav-item text-nowrap" role="presentation">
+                                            <a class="nav-link mb-0 d-flex align-items-center gap-2 py-3 px-x1 active"
+                                                id="contact-branches-tab" data-bs-toggle="tab" href="#branches"
+                                                role="tab" aria-controls="branches" aria-selected="true">
+                                                <span class="fas fa-stream icon"></span>
+                                                <h6 class="mb-0 text-600">Branches</h6>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item text-nowrap" role="presentation">
+                                            <a class="nav-link mb-0 d-flex align-items-center gap-2 py-3 px-x1"
+                                                id="contact-create-new-branch-tab" data-bs-toggle="tab"
+                                                href="#create-new-branch" role="tab" aria-controls="create-new-branch"
+                                                aria-selected="false" tabindex="-1">
+                                                <span class="fas fa-ticket-alt"></span>
+                                                <h6 class="mb-0 text-600">Create New Branch</h6>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="simplebar-placeholder" style="width: 1173px; height: 50px;"></div>
+                </div>
+                <div class="simplebar-track simplebar-horizontal" style="visibility: hidden;">
+                    <div class="simplebar-scrollbar" style="width: 0px; display: none;"></div>
+                </div>
+                <div class="simplebar-track simplebar-vertical" style="visibility: hidden;">
+                    <div class="simplebar-scrollbar" style="height: 0px; display: none;"></div>
+                </div>
+            </div>
+
+            <div class="tab-content">
+
+                <div class="card-body tab-pane active" id="branches" role="tabpanel"
+                    aria-labelledby="contact-branches-tab">
+                    <div class="table-responsive scrollbar">
+                        <table class="table table-hover table-bordered table-striped overflow-hidden" id="branch_table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Branch Name</th>
+                                    <th>Email Address</th>
+                                    <th>Contact No</th>
+                                    <th>Landline No</th>
+                                    <th>Labour No</th>
+                                    <th>Manager</th>
+                                    <th>Asst Manager</th>
+                                    <th>Area Manager</th>
+                                    <th>Emp Count</th>
+                                    <th>Options</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model != null && Model.Any())
+                                {
+                                    int serial = 1;
+                                    foreach (var branch in Model)
+                                    {
+                                        <tr>
+                                            <td>@serial</td>
+                                            <td>@branch.BranchName</td>
+                                            <td>@branch.BranchEmailAddress</td>
+                                            <td>@branch.ContactNo</td>
+                                            <td>@branch.LandlineNo</td>
+                                            <td>@branch.BranchLabourFileno</td>
+                                            <td>@branch.BranchManager</td>
+                                            <td>@branch.BranchAssistantManager</td>
+                                            <td>@branch.BranchAreaManager</td>
+                                            <td class="text-start">
+                                                <a href="">
+                                                    23
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex align-items-center justify-content-center">
+                                                    <a data-id="" href="#" data-bs-toggle="modal"
+                                                        data-bs-target="#edit-branch-details">
+                                                        <i class="fas fa-eye text-primary"></i>
+                                                    </a>
+                                                    <a data-id="" href="#" data-bs-toggle="modal"
+                                                        data-bs-target="#delete-branch">
+                                                        <i class="fas fa-trash text-danger mx-2"></i>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        serial++;
+                                    }
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td colspan="12" class="text-center">No branches found.</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card-body tab-pane p-3" id="create-new-branch" role="tabpanel"
+                    aria-labelledby="contact-create-new-branch-tab">
+                    <form action="/Branches/Create" method="POST" class="validate">
+                        <div class="row">
+                            <!-- Left Column -->
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label class="col-sm-3 control-label mb-3">Branch Name <span
+                                            class="text-danger">*</span></label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="name" id="name" required />
+                                    </div>
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label class="col-sm-3 control-label mb-2">Email Address <span
+                                            class="text-danger">*</span></label>
+                                    <div class="col-sm-9">
+                                        <input type="email" class="form-control" name="email" id="email" required />
+                                    </div>
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label class="col-sm-3 control-label mb-2">Contact No <span
+                                            class="text-danger">*</span></label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="contactno" required />
+                                    </div>
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label class="col-sm-3 control-label mb-2">Landline No</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="landlineno" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label class="col-sm-3 control-label mb-2">Fax No</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="faxno" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label class="col-sm-3 control-label mb-2">Emirates <span
+                                            class="text-danger">*</span></label>
+                                    <div class="col-sm-9">
+                                        <select id="emirates" name="emirates" class="form-control" required>
+                                            <option value="">Select Emirate</option>
+                                            <option value="Abu Dhabi">Abu Dhabi</option>
+                                            <option value="Ajman">Ajman</option>
+                                            <option value="Dubai">Dubai</option>
+                                            <option value="Fujairah">Fujairah</option>
+                                            <option value="Ras Al Khaimah">Ras Al Khaimah</option>
+                                            <option value="Sharjah">Sharjah</option>
+                                            <option value="Umm Al Quwain">Umm Al Quwain</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label class="col-sm-3 control-label mb-2">Address <span
+                                            class="text-danger">*</span></label>
+                                    <div class="col-sm-9">
+                                        <textarea class="form-control" name="address" required></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Right Column -->
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label class="col-sm-3 control-label mb-2">City Code <span
+                                            class="text-danger">*</span></label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="citycode" required />
+                                    </div>
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label class="col-sm-3 control-label mb-2">Postal Code</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="postalcode" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label class="col-sm-3 control-label mb-2">Labour File
+                                        No</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="labourfileno" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label class="col-sm-3 control-label mb-2">Area Manager</label>
+                                    <div class="col-sm-9">
+                                        <select name="area_manager" class="form-control">
+                                            <option value="">--Select Area Manager--</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label class="col-sm-3 control-label mb-2">Manager Name</label>
+                                    <div class="col-sm-9">
+                                        <select name="branch_manager" class="form-control">
+                                            <option value="">--Select Branch Manager--</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label class="col-sm-3 control-label mb-2">Asst Manager
+                                        Name</label>
+                                    <div class="col-sm-9">
+                                        <select name="asst_manager" class="form-control">
+                                            <option value="">--Select Asst Manager--</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="form-group">
+                            <div class="col-sm-offset-3 col-sm-9">
+                                <button type="submit" class="btn btn-primary btn-sm rounded-0" id="create_branch">
+                                    Add Branches
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="delete-branch" data-bs-keyboard="false" data-bs-backdrop="static" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+        <div class="modal-content border-0">
+            <div class="position-absolute top-0 end-0 mt-3 me-3 z-1">
+                <button class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base"
+                    data-bs-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <img src="/img/sent.png" alt="" width="50" height="46">
+                <h5 class="py-3">Are you sure want to delete this Branch?</h5>
+                <div class="m-t-20">
+                    <a href="#" class="btn btn-secondary btn-sm rounded-0" data-dismiss="modal">Close</a>
+                    <button type="submit" class="btn btn-danger btn-sm rounded-0">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="edit-branch-details" data-bs-keyboard="false" data-bs-backdrop="static" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content border-0">
+            <div class="d-flex justify-content-between m-3">
+                <span>
+                    <h5>Modify Deira Branch</h5>
+                </span>
+                <button class="btn-close btn btn-sm btn-circle  transition-base" data-bs-dismiss="modal"
+                    aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/Branches/Create" method="POST" class="validate">
+                    <div class="row">
+                        <!-- Left Column -->
+
+                        <div class="col-md-6">
+
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label col-form-label-sm d-flex" for="name">
+                                    Name Branch
+                                </label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control form-control-sm" id="name" name="name"
+                                        id="name" required />
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label col-form-label-sm" for="email">
+                                    Email Address
+                                </label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control form-control-sm" id="email" name="email"
+                                        id="email" required />
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label col-form-label-sm" for="contactno">
+                                    Contact No
+                                </label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control form-control-sm" id="contactno"
+                                        name="contactno" id="contactno" required />
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label col-form-label-sm" for="landlineno">
+                                    Landline No
+                                </label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control form-control-sm" id="landlineno"
+                                        name="landlineno" id="landlineno" required />
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label col-form-label-sm" for="faxno">
+                                    Fax No
+                                </label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control form-control-sm" id="faxno" name="faxno"
+                                        id="faxno" required />
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label col-form-label-sm" for="emirates">
+                                    Emirates
+                                </label>
+                                <div class="col-sm-9">
+                                    <select id="emirates" name="emirates" class="form-control" required>
+                                        <option value="">Select Emirate</option>
+                                        <option value="Abu Dhabi">Abu Dhabi</option>
+                                        <option value="Ajman">Ajman</option>
+                                        <option value="Dubai">Dubai</option>
+                                        <option value="Fujairah">Fujairah</option>
+                                        <option value="Ras Al Khaimah">Ras Al Khaimah</option>
+                                        <option value="Sharjah">Sharjah</option>
+                                        <option value="Umm Al Quwain">Umm Al Quwain</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label col-form-label-sm" for="address">
+                                    Address
+                                </label>
+                                <div class="col-sm-9">
+                                    <textarea class="form-control" name="address" id="address" required></textarea>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Right Column -->
+                        <div class="col-md-6">
+
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label col-form-label-sm d-flex" for="citycode">
+                                    City Code
+                                </label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control form-control-sm" id="citycode"
+                                        name="citycode" id="citycode" required />
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label col-form-label-sm d-flex" for="postalcode">
+                                    Postal Code
+                                </label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control form-control-sm" id="postalcode"
+                                        name="postalcode" id="postalcode" required />
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label col-form-label-sm d-flex" for="labourfileno">
+                                    Labour File
+                                </label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control form-control-sm" id="labourfileno"
+                                        name="labourfileno" id="labourfileno" required />
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label col-form-label-sm d-flex" for="area_manager">
+                                    Labour File
+                                </label>
+                                <div class="col-sm-9">
+                                    <select name="area_manager" class="form-control" id="area_manager">
+                                        <option value="">--Select Area Manager--</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label col-form-label-sm d-flex" for="branch_manager">
+                                    Labour File
+                                </label>
+                                <div class="col-sm-9">
+                                    <select name="branch_manager" class="form-control" id="branch_manager">
+                                        <option value="">--Select Branch Manager--</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label col-form-label-sm d-flex" for="asst_manager">
+                                    Labour File
+                                </label>
+                                <div class="col-sm-9">
+                                    <select name="asst_manager" class="form-control" id="asst_manager">
+                                        <option value="">--Select Select Asst Manager--</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-9">
+                            <button type="submit" class="btn btn-primary btn-sm rounded-0" id="create_branch">
+                                Add Branches
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 @section Scripts {
     <script>
@@ -316,7 +532,7 @@
                     landlineno: "Only digits allowed",
                     faxno: "Only digits allowed"
                 },
-                errorClass: "text-danger",
+                errorClass: "text-danger mt-2",
                 errorElement: "div",
                 highlight: function (element) {
                     $(element).addClass("is-invalid");
@@ -336,3 +552,9 @@
         new DataTable('#branch_table');
     </script>
 }
+
+<style>
+    .text-danger {
+        font-size: 14px;
+    }
+</style>

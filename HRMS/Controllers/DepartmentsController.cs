@@ -6,7 +6,7 @@ namespace HRMS.Controllers
     {
         public IActionResult Index()
         {
-            return Content("This is Department Controller");
+             return View("~/Views/Pages/Departments/Index.cshtml");
         }
     }
 }

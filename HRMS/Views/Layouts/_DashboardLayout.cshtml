@@ -2,56 +2,58 @@
 <html lang="en">
 
 <head>
-    <!--begin::Accessibility Meta Tags-->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Vidusha Wijekoon" />
     <meta name="description" content="Human Resources Management System (HRMS)" />
-    <meta name="color-scheme" content="light dark" />
-    <meta name="theme-color" content="#007bff" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)" />
+    <title>@ViewData["Title"] | Human Resources Management System (HRMS)</title>
+    <meta name="theme-color" content="#ffffff" />
 
-    <title>@ViewData["Title"] - Human Resources Management System (HRMS)</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico" />
 
-    @* Styles *@
-
-    <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="/lib/fontawesome-free/css/all.min.css">
-    <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="/lib/overlayScrollbars/css/OverlayScrollbars.min.css">
-    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
-
-    <link href="https://cdn.datatables.net/v/dt/dt-2.3.2/datatables.min.css" rel="stylesheet"
-        integrity="sha384-d76uxpdVr9QyCSR9vVSYdOAZeRzNUN8A4JVqUHBVXyGxZ+oOfrZVHC/1Y58mhyNg" crossorigin="anonymous">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="/css/adminlte.min.css">
-    <link rel="stylesheet" href="/css/custom.css">
+    @await Html.PartialAsync("~/Views/Libs/Dashboard/Styles.cshtml")
 </head>
 
-<body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
-    <div class="wrapper">
+<body>
 
-        <!-- Preloader -->
-        <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__wobble" src="/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+        <div class="container" data-layout="container">
+            <script>
+                var isFluid = JSON.parse(localStorage.getItem("isFluid"));
+                if (isFluid) {
+                    var container = document.querySelector("[data-layout]");
+                    container.classList.remove("container");
+                    container.classList.add("container-fluid");
+                }
+            </script>
+
+            @await Html.PartialAsync("~/Views/Templates/Dashboard/Sidebar.cshtml")
+
+            <!-- Main Content-->
+            <div class="content">
+                @await Html.PartialAsync("~/Views/Templates/Dashboard/Header.cshtml")
+                @RenderBody()
+                @await Html.PartialAsync("~/Views/Templates/Dashboard/Footer.cshtml")
+            </div>
+            <!-- Main Content-->
+
+
         </div>
+    </main>
+    <!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
 
-        <!--::Header-->
-        @await Html.PartialAsync("~/Views/Templates/Dashboard/Sidebar.cshtml")
-        <!--::Sidebar-->
-        @await Html.PartialAsync("~/Views/Templates/Dashboard/Header.cshtml")
-        <!--begin::App Main-->
-        <div class="content-wrapper">
-            @RenderBody()
-        </div>
 
-        @await Html.PartialAsync("~/Views/Templates/Dashboard/Footer.cshtml")
-    </div>
+    @await Html.PartialAsync("~/Views/Templates/Dashboard/Canvas.cshtml")
 
-    @* Scripts *@
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+
     @await Html.PartialAsync("~/Views/Libs/Dashboard/Scripts.cshtml")
     @await RenderSectionAsync("Scripts", required: false)
 </body>

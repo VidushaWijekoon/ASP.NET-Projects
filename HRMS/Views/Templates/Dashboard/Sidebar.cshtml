@@ -1,64 +1,560 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <a href="index3.html" class="brand-link">
-        <img src="/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-            style="opacity: .8">
-        <span class="brand-text font-weight-light">AdminLTE 3</span>
-    </a>
+<nav class="navbar navbar-light navbar-vertical navbar-expand-lg navbar-expand-xl navbar-card">
+    <div class="d-flex align-items-center">
 
-    <div class="sidebar">
-        <nav class="mt-2">
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <a class="navbar-brand" href="index.html">
+            <div class="d-flex align-items-center py-3 justify-content-center">
+                <img class="me-2" src="/img/logo.png" alt="" width="50%" />
+            </div>
+        </a>
+    </div>
 
-                <li class="nav-item">
-                    <a href="#" class="nav-link active">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>
-                            Dashboard
-                        </p>
-                    </a>
-                </li>
+    <div class="collapse navbar-collapse" id="navbarVerticalCollapse">
+        <div class="navbar-vertical-content scrollbar">
 
-                <li class="nav-header">Master Data</li>
+            <ul class="navbar-nav flex-column mb-3" id="navbarVerticalNav">
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-book"></i>
-                        <p>
-                            Master Data
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
+
+                    <!-- label-->
+                    <div class="row navbar-vertical-label-wrapper mt-2">
+                        <div class="col-auto navbar-vertical-label">Employee</div>
+                        <div class="col ps-0">
+                            <hr class="mb-0 navbar-vertical-divider" />
+                        </div>
+                    </div>
+
+                    <a class="nav-link dropdown-indicator collapsed" href="#employees" role="button"
+                        data-bs-toggle="collapse" aria-expanded="false" aria-controls="employees">
+                        <div class="d-flex align-items-center">
+                            <span class="nav-link-icon">
+                                <i class="fas fa-users"></i>
+                            </span>
+                            <span class="nav-link-text ps-1 mb-1">Employee Data</span>
+                        </div>
                     </a>
-                    <ul class="nav nav-treeview">
+
+                    <ul class="nav collapse" id="employees">
+
+                        <li class="nav-item mb-1">
+                            <a class="nav-link" href="#">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-text ps-1">Create Employees</span>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="nav-item mb-1">
+                            <a class="nav-link" href="#">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-text ps-1">
+                                        Employees Information
+                                    </span>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="nav-item mb-1">
+                            <a class="nav-link" href="#">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-text ps-1">
+                                        Employees Transfer
+                                    </span>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="nav-item mb-1">
+                            <a class="nav-link" href="#">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-text ps-1">
+                                        End of Services
+                                    </span>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="nav-item mb-1">
+                            <a class="nav-link" href="#">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-text ps-1">
+                                        Old Employees
+                                    </span>
+                                </div>
+                            </a>
+                        </li>
+
+
+                    </ul>
+
+                    <a class="nav-link dropdown-indicator collapsed" href="#emp_requests" role="button"
+                        data-bs-toggle="collapse" aria-expanded="false" aria-controls="emp_requests">
+                        <div class="d-flex align-items-center">
+                            <span class="nav-link-icon">
+                                <i class="fas fa-bell"></i>
+                            </span>
+                            <span class="nav-link-text ps-1 mb-1">Employee Requests</span>
+                        </div>
+                    </a>
+
+                    <ul class="nav collapse" id="emp_requests">
+
+                        <li class="nav-item mb-1">
+                            <a class="nav-link" href="#">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-text ps-1">Leave</span>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="nav-item mb-1">
+                            <a class="nav-link" href="#">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-text ps-1">
+                                        Air Ticket
+                                    </span>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="nav-item mb-1">
+                            <a class="nav-link" href="#">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-text ps-1">
+                                        Document Release
+                                    </span>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="nav-item mb-1">
+                            <a class="nav-link" href="#">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-text ps-1">
+                                        Cash / Loan
+                                    </span>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="nav-item mb-1">
+                            <a class="nav-link" href="#">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-text ps-1">
+                                        Mis Punching
+                                    </span>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="nav-item mb-1">
+                            <a class="nav-link" href="#">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-text ps-1">
+                                        Duty Hand Over
+                                    </span>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="nav-item mb-1">
+                            <a class="nav-link" href="#">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-text ps-1">
+                                        Duty Hand Resuming
+                                    </span>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="nav-item mb-1">
+                            <a class="nav-link" href="#">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-text ps-1">
+                                        Comp Off
+                                    </span>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="nav-item mb-1">
+                            <a class="nav-link" href="#">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-text ps-1">
+                                        Passport Return
+                                    </span>
+                                </div>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                    <a class="nav-link" href="#" role="button">
+                        <div class="d-flex align-items-center">
+                            <span class="nav-link-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </span>
+                            <span class="nav-link-text ps-1">Appraisal</span>
+                        </div>
+                    </a>
+
+                    <a class="nav-link dropdown-indicator collapsed" href="#emp_benefits" role="button"
+                        data-bs-toggle="collapse" aria-expanded="false" aria-controls="emp_benefits">
+                        <div class="d-flex align-items-center">
+                            <span class="nav-link-icon">
+                                <i class="fas fa-notes-medical"></i>
+                            </span>
+                            <span class="nav-link-text ps-1 mb-1">Employee Benefits</span>
+                        </div>
+                    </a>
+
+                    <ul class="nav collapse" id="emp_benefits">
+
+                        <li class="nav-item mb-1">
+                            <a class="nav-link" href="#">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-text ps-1">Employee Benefits</span>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="nav-item mb-1">
+                            <a class="nav-link" href="#">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-text ps-1">
+                                        Available Leave Days
+                                    </span>
+                                </div>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                    <a class="nav-link dropdown-indicator collapsed" href="#pro" role="button" data-bs-toggle="collapse"
+                        aria-expanded="false" aria-controls="pro">
+                        <div class="d-flex align-items-center">
+                            <span class="nav-link-icon">
+                                <i class="far fa-folder-open"></i>
+                            </span>
+                            <span class="nav-link-text ps-1 mb-1">PRO</span>
+                        </div>
+                    </a>
+
+                    <ul class="nav collapse" id="pro">
+
+                        <li class="nav-item mb-1">
+                            <a class="nav-link" href="#">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-text ps-1">New Visa</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item mb-1">
+                            <a class="nav-link" href="#">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-text ps-1">
+                                        Renew Visa
+                                    </span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item mb-1">
+                            <a class="nav-link" href="#">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-text ps-1">
+                                        Old Visa
+                                    </span>
+                                </div>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                    <!-- label-->
+                    <div class="row navbar-vertical-label-wrapper mt-3 mb-2">
+                        <div class="col-auto navbar-vertical-label">Master Data</div>
+                        <div class="col ps-0">
+                            <hr class="mb-0 navbar-vertical-divider" />
+                        </div>
+                    </div>
+
+                    <a class="nav-link dropdown-indicator collapsed" href="#master" role="button"
+                        data-bs-toggle="collapse" aria-expanded="false" aria-controls="master">
+                        <div class="d-flex align-items-center">
+                            <span class="nav-link-icon">
+                                <i class="fas fa-border-all"></i>
+                            </span>
+                            <span class="nav-link-text ps-1 mb-1">Master</span>
+                        </div>
+                    </a>
+
+                    <ul class="nav collapse" id="master">
                         <li class="nav-item">
-                            <a href="departments" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Departments</p>
+                            <a class="nav-link" href="#">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-text  ps-1 mb-1">Branches</span>
+                                </div>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="branches" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Branches</p>
+                            <a class="nav-link" href="#">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-text ps-1 mb-1">Departments</span>
+                                </div>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="designations" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Designations</p>
+                            <a class="nav-link" href="#">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-text ps-1 mb-1">Designations</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-text ps-1 mb-1">Work Shift</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-text ps-1 mb-1">Employee Benifits</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-text ps-1 mb-1">Grade</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-text ps-1 mb-1">Air Ticket Benifits</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-text ps-1 mb-1">Holidays</span>
+                                </div>
                             </a>
                         </li>
                     </ul>
-                </li>
 
-                <li class="nav-header">MISCELLANEOUS</li>
-
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon far fa-circle text-info"></i>
-                        <p>Informational</p>
+                    <a class="nav-link dropdown-indicator collapsed" href="#emp_history" role="button"
+                        data-bs-toggle="collapse" aria-expanded="false" aria-controls="emp_history">
+                        <div class="d-flex align-items-center">
+                            <span class="nav-link-icon">
+                                <i class="fas fa-monument"></i>
+                            </span>
+                            <span class="nav-link-text ps-1 mb-1">Employee History</span>
+                        </div>
                     </a>
+
+                    <ul class="nav collapse" id="emp_history">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-text  ps-1 mb-1">Leaves</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-text ps-1 mb-1">Leave Benefits</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-text ps-1 mb-1">Document Release</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-text ps-1 mb-1">Cash / Loan</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-text ps-1 mb-1">Mis Punch</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-text ps-1 mb-1">Duty Handover</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-text ps-1 mb-1">Comp Off</span>
+                                </div>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                    <!-- label-->
+                    <div class="row navbar-vertical-label-wrapper mt-3 mb-2">
+                        <div class="col-auto navbar-vertical-label">Payroll</div>
+                        <div class="col ps-0">
+                            <hr class="mb-0 navbar-vertical-divider" />
+                        </div>
+                    </div>
+
+                    <a class="nav-link dropdown-indicator collapsed" href="#payroll" role="button"
+                        data-bs-toggle="collapse" aria-expanded="false" aria-controls="payroll">
+                        <div class="d-flex align-items-center">
+                            <span class="nav-link-icon">
+                                <i class="fab fa-paypal"></i>
+                            </span>
+                            <span class="nav-link-text ps-1 mb-1">Payroll</span>
+                        </div>
+                    </a>
+
+                    <ul class="nav collapse" id="payroll">
+
+                        <li class="nav-item">
+                            <a class="nav-link dropdown-indicator collapsed" href="#attendance"
+                                data-bs-toggle="collapse" aria-expanded="true" aria-controls="multi-level">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-text ps-1">Attendance</span>
+                                </div>
+                            </a>
+
+                            <ul class="nav collapse" id="attendance">
+
+                                <li class="nav-item mb-1">
+                                    <a class="nav-link" href="#">
+                                        <div class="d-flex align-items-center">
+                                            <span class="nav-link-text ps-1">Live Attendance</span>
+                                        </div>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item mb-1">
+                                    <a class="nav-link" href="#">
+                                        <div class="d-flex align-items-center">
+                                            <span class="nav-link-text ps-1">
+                                                Attendance History
+                                            </span>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-text ps-1 mb-1">Deductions</span>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-text ps-1 mb-1">Increments</span>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-text ps-1 mb-1">Salary Process</span>
+                                </div>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                    <div class="row navbar-vertical-label-wrapper mt-3 mb-2">
+                        <div class="col-auto navbar-vertical-label">Other</div>
+                        <div class="col ps-0">
+                            <hr class="mb-0 navbar-vertical-divider" />
+                        </div>
+                    </div>
+
+                    <a class="nav-link dropdown-indicator collapsed" href="#expiry_details" role="button"
+                        data-bs-toggle="collapse" aria-expanded="false" aria-controls="expiry_details">
+                        <div class="d-flex align-items-center">
+                            <span class="nav-link-icon">
+                                <i class="far fa-file-excel"></i>
+                            </span>
+                            <span class="nav-link-text ps-1 mb-1">Expiry Details</span>
+                        </div>
+                    </a>
+
+                    <ul class="nav collapse" id="expiry_details">
+
+                        <li class="nav-item mb-1">
+                            <a class="nav-link" href="#">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-text ps-1">Work Permit</span>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="nav-item mb-1">
+                            <a class="nav-link" href="#">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-text ps-1">
+                                        Passport
+                                    </span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item mb-1">
+                            <a class="nav-link" href="#">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-text ps-1">
+                                        Company Documents
+                                    </span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item mb-1">
+                            <a class="nav-link" href="#">
+                                <div class="d-flex align-items-center">
+                                    <span class="nav-link-text ps-1">
+                                        ILOE Insurance
+                                    </span>
+                                </div>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                    <div class="row navbar-vertical-label-wrapper mt-3 mb-2">
+                        <div class="col-auto navbar-vertical-label">User Credentials</div>
+                        <div class="col ps-0">
+                            <hr class="mb-0 navbar-vertical-divider" />
+                        </div>
+                    </div>
+
+
                 </li>
+
             </ul>
-        </nav>
+
+        </div>
     </div>
-</aside>
+
+</nav>
